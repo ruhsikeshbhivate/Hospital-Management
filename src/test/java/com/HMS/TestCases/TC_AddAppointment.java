@@ -31,7 +31,6 @@ public class TC_AddAppointment extends BaseClass{
 		DashboardPage dashboardPage = new DashboardPage(driver);
 		dashboardPage.dashboard();
 		dashboardPage.appointmnets();
-
 		AppointmetsPage appointmetsPage = new AppointmetsPage(driver);
 		appointmetsPage.bookAppointment();
 
@@ -41,7 +40,6 @@ public class TC_AddAppointment extends BaseClass{
 		String lastname = appointmetsPage.LastName.getAttribute("value");
 		AppointPatientName = firstname + " " + lastname;
 		System.out.println("Patient Name : " + AppointPatientName);
-
 		appointmetsPage.appointedDoctor();
 		appointmetsPage.symptoms("Fever");
 	}
@@ -64,7 +62,6 @@ public class TC_AddAppointment extends BaseClass{
 		dashboardPage.todaysAppointment();
 		appointmetsPage.switchToTableView();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
 		String patientName = appointmetsPage.PatientName1.getText();
 		System.out.println("Patient name in appointment list : " + patientName);
 		String appointmentDate = appointmetsPage.AppointmentDate1.getText();
@@ -81,7 +78,6 @@ public class TC_AddAppointment extends BaseClass{
 		}
 		System.out.println("========================================================================");
 		System.out.println();
-		
 		System.out.println("Appointment is created for upcoming date:");
 	}
 
@@ -90,19 +86,15 @@ public class TC_AddAppointment extends BaseClass{
 	{
 		AppointmetsPage appointmentsPage = new AppointmetsPage(driver);
 		appointmentsPage.upcomingDate();
-
 		appointmentsPage.appointmentTime();
 		String time = appointmentsPage.AppointmentTime.getAttribute("value");
 		Date DATE = new SimpleDateFormat("hh:mm").parse(time);
 		String appointTime= new SimpleDateFormat("hh:mm aa").format(DATE);
 		System.out.println("Appointment Time : " +appointTime);
-
 		appointmentsPage.Submit();
 		DashboardPage dashPage = new DashboardPage(driver);
 		dashPage.dashboard();
-		DashboardPage dashboardPage = new DashboardPage(driver);
-
-		dashboardPage.todaysAppointment();
+		dashPage.todaysAppointment();
 		appointmentsPage.upcoming();
 		String patientName = appointmentsPage.PatientName1.getText();
 		System.out.println("Patient name in appointment list : " + patientName);
