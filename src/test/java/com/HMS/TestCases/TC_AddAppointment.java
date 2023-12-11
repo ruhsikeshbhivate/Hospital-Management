@@ -4,14 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
-import java.util.Locale;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.HMS.PageObject.AppointmetsPage;
 import com.HMS.PageObject.DashboardPage;
-import com.github.javafaker.Faker;
 
 public class TC_AddAppointment extends BaseClass{
 
@@ -92,6 +90,7 @@ public class TC_AddAppointment extends BaseClass{
 		String appointTime= new SimpleDateFormat("hh:mm aa").format(DATE);
 		System.out.println("Appointment Time : " +appointTime);
 		appointmentsPage.Submit();
+		
 		DashboardPage dashPage = new DashboardPage(driver);
 		dashPage.dashboard();
 		dashPage.todaysAppointment();

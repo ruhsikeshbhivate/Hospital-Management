@@ -8,6 +8,7 @@
           <include name="setUp"/>
           <include name="bookUpcominAppointment"/>
           <include name="addAppointment"/>
+          <include name="currentDateAppointment"/>
         </methods>
       </class> <!-- com.HMS.TestCases.TC_AddAppointment -->
     </classes>
